@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(to right, pink, lightblue);
+            font-family: 'Roboto', sans-serif;
+        }
+        h1 {
+            color: orange;
+            font-size: 2.5em; 
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center; 
+        }
+        h2 {
+            background-color: yellow;
+            margin-top: 40px;
+            padding: 10px;
+            border-bottom: 2px solid orange; 
+            text-align: center; 
+        }
+        h3 {
+            background-color: yellow;
+            margin-top: 40px;
+            padding: 10px;
+            border-bottom: 2px solid orange; 
+            text-align: center; 
+        }
+        p {
+            color: black;
+            text-align: center; 
+        }
+        .image-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap; 
+            margin-top: 20px; 
+        }
+        .image-container img {
+            width: 200px; 
+            margin: 10px; 
+            border: 2px solid orange; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); 
+            transition: transform 0.3s ease; 
+        }
+        .image-container img:hover {
+            transform: scale(1.1); 
+        }
+        button {
+            background-color: orange;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            margin-top: 20px; 
+        }
+        button:hover {
+            background-color: darkorange; 
+        }
+        .quiz-container {
+            max-width: 600px;
+            margin: auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            display: none; /* Hide quiz initially */
+        }
+        .question {
+            margin: 20px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>This website was made by ATHARVA</h1>
+    <h2>Happy BIRTHDAY!!!!!!!!</h2>
+    
+    <div class="image-container">
+        <img src="mom1.jpg" alt="Image 1">
+        <img src="mom2.jpg" alt="Image 2">
+        <img src="mom3.jpg" alt="Image 3">
+        <img src="mom4.jpg" alt="Image 4">
+    </div>
+    
+    <h3>More about the birthday girl</h3>
+    <p>Born in 1981 in Assam. Jagriti learned that to succeed in life one has to work hard.
+        She is a great worker and a loving mother that cooks delicious paneer for me. She claims to be the smartest in her class
+        (not proven yet) but she teaches me valuable life lessons and gives me unconditional love. I hope to one day return the favour
+        and become a great man. All in all, she is a caring person and doesn't want anything in return for the kindness she has given to the world.
+        Also, please follow her on Facebook etc.
+    </p>
+    
+    <button onclick="showQuiz()">Click for a Surprise!</button> 
+
+    <!-- Quiz Section -->
+    <div class="quiz-container" id="quiz">
+        <h2>Birthday Quiz!</h2>
+        <div class="question">
+            <p>1. What is Jagriti's favorite color?</p>
+            <input type="radio" name="q1" value="a"> A) Pink<br>
+            <input type="radio" name="q1" value="b"> B) Blue<br>
+            <input type="radio" name="q1" value="c"> C) Green<br>
+        </div>
+        <div class="question">
+            <p>2. What is her favorite food?</p>
+            <input type="radio" name="q2" value="a"> A) Paneer<br>
+            <input type="radio" name="q2" value="b"> B) Pasta<br>
+            <input type="radio" name="q2" value="c"> C) Pizza<br>
+        </div>
+        <button onclick="checkAnswers()">Submit Answers</button>
+        <p id="result" style="text-align: center; margin-top: 20px;"></p>
+    </div>
+
+    <script>
+        function showQuiz() {
+            document.getElementById("quiz").style.display = "block"; // Show quiz when button is clicked
+        }
+
+        function checkAnswers() {
+            let score = 0;
+            // Correct answers are A for both questions
+            if (document.querySelector('input[name="q1"]:checked')?.value === "a") score++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === "a") score++;
+
+            const result = document.getElementById("result");
+            result.textContent = `You scored ${score} out of 2!`;
+        }
+    </script>
+</body>
+</html>
